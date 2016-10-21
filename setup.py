@@ -21,4 +21,5 @@ setup(
     classifiers=[
         'Intended Audience :: Python Developers',
     ],
+    test_suite='test_mt940_writer',
 )
