@@ -1,25 +1,42 @@
 import os
-from setuptools import setup
+import sys
 
-version = '0.1'
+from setuptools import setup
 
 with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     README = readme.read()
 
-# allow setup.py to be run from any path
-os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
+install_requires = []
+tests_require = ['flake8']
+if sys.version_info[0:2] < (3, 4):
+    install_requires.append('enum34')
 
 setup(
     name='mt940-writer',
-    version=version,
-    py_modules=['mt940_writer'],
-    license='MIT License',
-    description='Writer for MT-940 bank statements',
+    version='0.1',
+    author='Ministry of Justice',
+    author_email='dev@digital.justice.gov.uk',
     url='https://github.com/ministryofjustice/mt940-writer',
+    py_modules=['mt940_writer'],
+    include_package_data=True,
+    license='MIT',
+    description='Writer for MT-940 bank statements',
     long_description=README,
-    install_requires=[],
     classifiers=[
-        'Intended Audience :: Python Developers',
+        'Development Status :: 4 - Beta',
+        'Framework :: Django',
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: MIT License',
+        'Natural Language :: English',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
-    test_suite='test_mt940_writer',
+    install_requires=[],
+    tests_require=['flake8'],
+    test_suite='tests',
 )
