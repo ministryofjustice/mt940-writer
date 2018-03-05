@@ -13,7 +13,7 @@ if sys.version_info[0:2] < (3, 4):
 
 setup(
     name='mt940-writer',
-    version='0.1',
+    version='0.2',
     author='Ministry of Justice',
     author_email='dev@digital.justice.gov.uk',
     url='https://github.com/ministryofjustice/mt940-writer',
