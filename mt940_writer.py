@@ -27,7 +27,7 @@ class TransactionType(Enum):
     travellers_cheques = 'NTCK'
 
 
-class Account:
+class Account(object):
 
     def __init__(self, account_number, sort_code):
         self.account_number = account_number
@@ -40,7 +40,7 @@ class Account:
         )
 
 
-class Balance:
+class Balance(object):
 
     def __init__(self, amount, date, currency_code):
         self.amount = amount
@@ -56,7 +56,7 @@ class Balance:
         )
 
 
-class Transaction:
+class Transaction(object):
 
     def __init__(self, date, amount, transaction_type, narrative):
         self.date = date
@@ -75,7 +75,7 @@ class Transaction:
         )
 
 
-class Statement:
+class Statement(object):
 
     def __init__(self, reference_number, account, statement_number,
                  opening_balance, closing_balance, transactions):
