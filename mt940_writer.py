@@ -1,5 +1,9 @@
 from enum import Enum
 
+VERSION = (0, 2)
+__version__ = '.'.join(map(str, VERSION))
+__author__ = 'Ministry of Justice Digital & Technology'
+
 
 class TransactionType(Enum):
     miscellaneous = 'NMSC'
