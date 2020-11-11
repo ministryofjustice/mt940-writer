@@ -17,7 +17,9 @@ with open(os.path.join(root_path, 'README.rst')) as readme:
 package_info = importlib.import_module('mt940_writer')
 
 install_requires = []
-tests_require = ['flake8']
+tests_require = [
+    'flake8', 'flake8-bugbear', 'flake8-quotes', 'flake8-blind-except', 'flake8-debugger', 'pep8-naming',
+]
 
 setup(
     name='mt940-writer',
