@@ -10,7 +10,7 @@ Python library to create bank statements in the MT940 format
 Development
 -----------
 
-.. image:: https://github.com/ministryofjustice/mt940-writer/workflows/Run%20tests/badge.svg?branch=master
+.. image:: https://github.com/ministryofjustice/mt940-writer/workflows/Run%20tests/badge.svg?branch=main
     :target: https://github.com/ministryofjustice/mt940-writer/actions
 
 
