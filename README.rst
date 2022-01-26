@@ -25,7 +25,7 @@ Alternatively, run ``python setup.py sdist bdist_wheel upload`` locally.
 Copyright
 ---------
 
-Copyright (C) 2020 HM Government (Ministry of Justice Digital & Technology).
+Copyright (C) 2022 HM Government (Ministry of Justice Digital & Technology).
 See LICENSE.txt for further details.
 
 .. _GitHub: https://github.com/ministryofjustice/mt940-writer
