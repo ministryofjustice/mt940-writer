@@ -77,8 +77,7 @@ class Transaction:
 
 
 class Statement:
-    def __init__(self, reference_number, account, statement_number,
-                 opening_balance, closing_balance, transactions):
+    def __init__(self, reference_number, account, statement_number, opening_balance, closing_balance, transactions):
         self.reference_number = reference_number
         self.account = account
         self.statement_number = statement_number
@@ -86,7 +85,7 @@ class Statement:
         self.closing_balance = closing_balance
         self.transactions = transactions
 
-    def get_lines(self):
+    def __iter__(self):
         yield ':20:%s' % self.reference_number
         yield ':25:%s' % self.account
         yield ':28C:%s' % self.statement_number
@@ -96,4 +95,4 @@ class Statement:
         yield ':62F:%s' % self.closing_balance
 
     def __str__(self):
-        return '\n'.join(self.get_lines())
+        return '\n'.join(self)
