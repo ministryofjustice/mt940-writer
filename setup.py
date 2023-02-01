@@ -16,9 +16,6 @@ with open(os.path.join(root_path, 'README.rst')) as readme:
 
 package_info = importlib.import_module('mt940_writer')
 
-install_requires = []
-tests_require = []
-
 setup(
     name='mt940-writer',
     version=package_info.__version__,
@@ -45,7 +42,7 @@ setup(
         'Programming Language :: Python :: 3.11',
     ],
     python_requires='>=3.6',  # looser requirement than what's tested
-    install_requires=install_requires,
-    tests_require=tests_require,
+    install_requires=[],
+    tests_require=[],
     test_suite='tests',
 )
