@@ -22,11 +22,10 @@ Please report bugs and open pull requests on `GitHub`_.
 
 Use ``python setup.py test`` or ``tox`` to run all tests.
 
-Distribute a new version by updating the ``VERSION`` tuple in ``mt940_writer.py`` and
+Distribute a new version to `PyPI`_ by updating the ``VERSION`` tuple in ``mt940_writer.py`` and
 publishing a release in GitHub (this triggers a GitHub Actions workflow to automatically upload it).
 Alternatively, run ``python setup.py sdist bdist_wheel upload`` locally.
 Remember to update `History`_.
-
 
 History
 -------
@@ -47,3 +46,4 @@ Copyright (C) 2023 HM Government (Ministry of Justice Digital & Technology).
 See LICENSE.txt for further details.
 
 .. _GitHub: https://github.com/ministryofjustice/mt940-writer
+.. _PyPI: https://pypi.org/project/mt940-writer/
