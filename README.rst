@@ -20,15 +20,22 @@ Development
 
 Please report bugs and open pull requests on `GitHub`_.
 
-Use ``python setup.py test`` or ``tox`` to run all tests.
+Use ``python -m tests`` to run all tests locally.
+Alternatively, you can use ``tox`` if you have multiple python versions.
 
-Distribute a new version to `PyPI`_ by updating the ``VERSION`` tuple in ``mt940_writer.py`` and
-publishing a release in GitHub (this triggers a GitHub Actions workflow to automatically upload it).
-Alternatively, run ``python setup.py sdist bdist_wheel upload`` locally.
-Remember to update `History`_.
+[Only for GitHub team members] Distribute a new version to `PyPI`_ by:
+
+- updating the ``VERSION`` tuple in ``mt940_writer.py``
+- adding a note to the `History`_
+- publishing a release on GitHub which triggers an upload to PyPI;
+  alternatively, run ``python setup.py sdist bdist_wheel upload`` locally
 
 History
 -------
+
+Unreleased
+    Migrated test, build and release processes away from deprecated setuptools commands.
+    No significant library changes.
 
 0.6
     Maintenance release, no library changes.
