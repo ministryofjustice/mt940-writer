@@ -44,3 +44,14 @@ release: clean
 	pip install -r requirements-release.txt
 	python -m build
 	twine upload dist/*
+
+format-install:
+	pip install -r requirements-format.txt
+
+format-check: format-install
+	pip install -r requirements-format.txt
+	black --check mt940_writer.py tests/test_mt940_writer.py
+
+format: format-install
+	pip install -r requirements-format.txt
+	black mt940_writer.py tests/test_mt940_writer.py
