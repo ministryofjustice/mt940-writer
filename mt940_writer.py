@@ -58,11 +58,12 @@ class Balance:
 
 
 class Transaction:
-    def __init__(self, date, amount, transaction_type, narrative):
+    def __init__(self, date, amount, transaction_type, narrative, additional_info=None):
         self.date = date
         self.amount = amount
         self.transaction_type = transaction_type
         self.narrative = narrative
+        self.additional_info = additional_info
 
     def __str__(self):
         return '{value_date}{entry_date}{category}{amount}{type_code}{narrative}'.format(
@@ -74,6 +75,18 @@ class Transaction:
             narrative=self.narrative
         )
 
+
+class TransactionAdditionalInfo:
+    def __init__(self, information):
+        self.information = information
+
+    def __str__(self):
+        return '{information}'.format(
+            information=self.information,
+        )
+
+    def __bool__(self):
+        return bool(self.information)
 
 class Statement:
     def __init__(self, reference_number, account, statement_number, opening_balance, closing_balance, transactions):
@@ -91,6 +104,8 @@ class Statement:
         yield ':60F:%s' % self.opening_balance
         for transaction in self.transactions:
             yield ':61:%s' % transaction
+            if transaction.additional_info:
+                yield ':86:%s' % transaction.additional_info
         yield ':62F:%s' % self.closing_balance
 
     def __str__(self):
