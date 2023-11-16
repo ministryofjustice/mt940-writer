@@ -38,10 +38,7 @@ class Account:
         self.sort_code = sort_code
 
     def __str__(self):
-        return '{account_number} {sort_code}'.format(
-            account_number=self.account_number,
-            sort_code=self.sort_code,
-        )
+        return f'{self.account_number} {self.sort_code}'
 
 
 class Balance:
@@ -55,7 +52,7 @@ class Balance:
             category='C' if self.amount >= 0 else 'D',
             date=self.date.strftime('%y%m%d'),
             currency_code=self.currency_code,
-            amount='{:0.2f}'.format(self.amount).replace('.', ',').replace('-', ''),
+            amount=f'{self.amount:0.2f}'.replace('.', ',').replace('-', ''),
         )
 
 
@@ -72,7 +69,7 @@ class Transaction:
             value_date=self.date.strftime('%y%m%d'),
             entry_date=self.date.strftime('%m%d'),
             category='C' if self.amount >= 0 else 'D',
-            amount='{:0.2f}'.format(self.amount).replace('.', ',').replace('-', ''),
+            amount=f'{self.amount:0.2f}'.replace('.', ',').replace('-', ''),
             type_code=self.transaction_type.value,
             narrative=self.narrative,
         )
@@ -83,9 +80,7 @@ class TransactionAdditionalInfo:
         self.information = information
 
     def __str__(self):
-        return '{information}'.format(
-            information=self.information,
-        )
+        return f'{self.information}'
 
     def __bool__(self):
         return bool(self.information)
@@ -101,15 +96,15 @@ class Statement:
         self.transactions = transactions
 
     def __iter__(self):
-        yield ':20:%s' % self.reference_number
-        yield ':25:%s' % self.account
-        yield ':28C:%s' % self.statement_number
-        yield ':60F:%s' % self.opening_balance
+        yield f':20:{self.reference_number}'
+        yield f':25:{self.account}'
+        yield f':28C:{self.statement_number}'
+        yield f':60F:{self.opening_balance}'
         for transaction in self.transactions:
-            yield ':61:%s' % transaction
+            yield f':61:{transaction}'
             if transaction.additional_info:
-                yield ':86:%s' % transaction.additional_info
-        yield ':62F:%s' % self.closing_balance
+                yield f':86:{transaction.additional_info}'
+        yield f':62F:{self.closing_balance}'
 
     def __str__(self):
         return '\n'.join(self)

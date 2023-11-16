@@ -13,5 +13,15 @@ line-ending = "lf"
 quote-style = "single"
 skip-magic-trailing-comma = false
 
+[tool.ruff.lint]
+preview = true
+select = ["B", "C", "E", "F", "I", "PL", "PYI", "Q", "RUF", "S", "SIM", "T", "TCH", "TID", "UP", "W", "YTT"]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "single"
+
 [tool.ruff.lint.mccabe]
 max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 7
