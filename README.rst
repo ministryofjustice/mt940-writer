@@ -36,9 +36,9 @@ Alternatively, you can use ``tox`` if you have multiple python versions.
 History
 -------
 
-Unreleased
+0.7
+    Added additional transaction information with tag 86.
     Migrated test, build and release processes away from deprecated setuptools commands.
-    No significant library changes.
 
 0.6
     Maintenance release, no library changes.

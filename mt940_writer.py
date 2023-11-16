@@ -1,6 +1,6 @@
 from enum import Enum
 
-VERSION = (0, 6)
+VERSION = (0, 7)
 __version__ = '.'.join(map(str, VERSION))
 
 
@@ -87,6 +87,7 @@ class TransactionAdditionalInfo:
 
     def __bool__(self):
         return bool(self.information)
+
 
 class Statement:
     def __init__(self, reference_number, account, statement_number, opening_balance, closing_balance, transactions):
