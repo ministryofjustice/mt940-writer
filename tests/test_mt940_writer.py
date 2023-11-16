@@ -51,7 +51,8 @@ class MT940WriterTestCase(TestCase):
                                   mt940.TransactionAdditionalInfo('ADDITIONAL/DATA/1')),
                 mt940.Transaction(stmt_date, Decimal('1'), mt940.TransactionType.miscellaneous, 'Payment 2',
                                   mt940.TransactionAdditionalInfo('ADDITIONAL/DATA/2')),
-                mt940.Transaction(stmt_date, Decimal('1'), mt940.TransactionType.transfer, 'Payment 3'),
+                mt940.Transaction(stmt_date, Decimal('1'), mt940.TransactionType.transfer, 'Payment 3',
+                                  mt940.TransactionAdditionalInfo('')),
                 mt940.Transaction(stmt_date, Decimal('-0.99'), mt940.TransactionType.miscellaneous, 'Payment 4')
             ]
 
