@@ -15,7 +15,7 @@ skip-magic-trailing-comma = false
 
 [tool.ruff.lint]
 preview = true
-select = ["B", "C", "E", "F", "I", "PL", "PYI", "Q", "RUF", "S", "SIM", "T", "TCH", "TID", "UP", "W", "YTT"]
+select = ["B", "BLE", "C", "E", "F", "I", "PL", "PYI", "Q", "RUF", "S", "SIM", "T", "TCH", "TID", "UP", "W", "YTT"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
