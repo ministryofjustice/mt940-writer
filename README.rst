@@ -38,7 +38,7 @@ History
 
 0.7
     Added additional transaction information with tag 86.
-    Switched to [ruff](https://github.com/astral-sh/ruff) for code linting and formatting.
+    Switched to `ruff <https://github.com/astral-sh/ruff>`_ for code linting and formatting.
     Migrated test, build and release processes away from deprecated setuptools commands.
 
 0.6
