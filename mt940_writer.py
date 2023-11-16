@@ -3,6 +3,8 @@ from enum import Enum
 VERSION = (0, 7)
 __version__ = '.'.join(map(str, VERSION))
 
+__all__ = ['Account', 'Balance', 'Statement', 'Transaction', 'TransactionAdditionalInfo', 'TransactionType']
+
 
 class TransactionType(Enum):
     miscellaneous = 'NMSC'
@@ -38,7 +40,7 @@ class Account:
     def __str__(self):
         return '{account_number} {sort_code}'.format(
             account_number=self.account_number,
-            sort_code=self.sort_code
+            sort_code=self.sort_code,
         )
 
 
@@ -53,7 +55,7 @@ class Balance:
             category='C' if self.amount >= 0 else 'D',
             date=self.date.strftime('%y%m%d'),
             currency_code=self.currency_code,
-            amount='{:0.2f}'.format(self.amount).replace('.', ',').replace('-', '')
+            amount='{:0.2f}'.format(self.amount).replace('.', ',').replace('-', ''),
         )
 
 
@@ -72,7 +74,7 @@ class Transaction:
             category='C' if self.amount >= 0 else 'D',
             amount='{:0.2f}'.format(self.amount).replace('.', ',').replace('-', ''),
             type_code=self.transaction_type.value,
-            narrative=self.narrative
+            narrative=self.narrative,
         )
 
 
