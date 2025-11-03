@@ -3,7 +3,7 @@ mt940-writer
 
 Python library to create bank statements in the MT940 format.
 
-Only Python 3.7+ is supported.
+Only tested on Python 3.10+, but should work on 3.7+.
 
 .. code-block:: shell
 
@@ -14,9 +14,6 @@ Development
 
 .. image:: https://github.com/ministryofjustice/mt940-writer/actions/workflows/test.yml/badge.svg?branch=main
     :target: https://github.com/ministryofjustice/mt940-writer/actions/workflows/test.yml
-
-.. image:: https://github.com/ministryofjustice/mt940-writer/actions/workflows/lint.yml/badge.svg?branch=main
-    :target: https://github.com/ministryofjustice/mt940-writer/actions/workflows/lint.yml
 
 Please report bugs and open pull requests on `GitHub`_.
 
@@ -36,6 +33,12 @@ Alternatively, you can use ``tox`` if you have multiple python versions.
 History
 -------
 
+0.8
+    Testing on python 3.10 to 3.14.
+    Reverted to flake8 for code style to be consistent with other MoJ libs.
+    Improve linting and modernise code style.
+    Migrated to trusted publishing.
+
 0.7
     Added additional transaction information with tag 86.
     Switched to `ruff <https://github.com/astral-sh/ruff>`_ for code linting and formatting.
@@ -53,7 +56,7 @@ History
 Copyright
 ---------
 
-Copyright (C) 2023 HM Government (Ministry of Justice Digital & Technology).
+Copyright (C) 2025 HM Government (Ministry of Justice Digital & Technology).
 See LICENSE.txt for further details.
 
 .. _GitHub: https://github.com/ministryofjustice/mt940-writer
