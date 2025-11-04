@@ -1,6 +1,6 @@
 from enum import Enum
 
-VERSION = (0, 7)
+VERSION = (0, 8)
 __version__ = '.'.join(map(str, VERSION))
 
 __all__ = ['Account', 'Balance', 'Statement', 'Transaction', 'TransactionAdditionalInfo', 'TransactionType']
@@ -48,12 +48,11 @@ class Balance:
         self.currency_code = currency_code
 
     def __str__(self):
-        return '{category}{date}{currency_code}{amount}'.format(
-            category='C' if self.amount >= 0 else 'D',
-            date=self.date.strftime('%y%m%d'),
-            currency_code=self.currency_code,
-            amount=f'{self.amount:0.2f}'.replace('.', ',').replace('-', ''),
-        )
+        category = 'C' if self.amount >= 0 else 'D'
+        date = self.date.strftime('%y%m%d')
+        currency_code = self.currency_code
+        amount = f'{self.amount:0.2f}'.replace('.', ',').replace('-', '')
+        return f'{category}{date}{currency_code}{amount}'
 
 
 class Transaction:
@@ -65,14 +64,13 @@ class Transaction:
         self.additional_info = additional_info
 
     def __str__(self):
-        return '{value_date}{entry_date}{category}{amount}{type_code}{narrative}'.format(
-            value_date=self.date.strftime('%y%m%d'),
-            entry_date=self.date.strftime('%m%d'),
-            category='C' if self.amount >= 0 else 'D',
-            amount=f'{self.amount:0.2f}'.replace('.', ',').replace('-', ''),
-            type_code=self.transaction_type.value,
-            narrative=self.narrative,
-        )
+        value_date = self.date.strftime('%y%m%d')
+        entry_date = self.date.strftime('%m%d')
+        category = 'C' if self.amount >= 0 else 'D'
+        amount = f'{self.amount:0.2f}'.replace('.', ',').replace('-', '')
+        type_code = self.transaction_type.value
+        narrative = self.narrative
+        return f'{value_date}{entry_date}{category}{amount}{type_code}{narrative}'
 
 
 class TransactionAdditionalInfo:
